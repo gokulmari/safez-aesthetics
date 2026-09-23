@@ -57,23 +57,22 @@
         <p class="form-sub">Fill in your details and our team will get back to you.</p>
 
         <!-- ================================================================
-             Salesforce Web-to-Lead form - regenerated snippet, used exactly
-             as provided (ids, names, tag types, recaptcha key all untouched).
-             Two intentional deviations, both explicitly requested:
+             Salesforce Web-to-Lead form - regenerated snippet (reCAPTCHA now
+             disabled at the org level, so it's gone from here entirely too).
+             Used exactly as provided; intentional deviations, both explicitly
+             requested:
              1. retURL points at this site's thank-you page, not the homepage.
              2. "Company" is hidden with a default value instead of a visible
-                text field, since these are individual/consumer leads, not
-                businesses - avoids the Lead insert failing on a required
-                field nobody would know how to fill in.
+                text field - individual/consumer leads, not businesses.
+             3. "Preferred Date & Time" uses a native datetime-local picker
+                instead of a plain text box, since it's a real SF DateTime
+                field - same id/name, just a better input type. NOTE: if this
+                field shows up blank on the Lead, Web-to-Lead's date parsing
+                may not accept the browser's submitted format for this org's
+                locale - the rest of the Lead will still be created fine.
              ================================================================ -->
-        <script src="https://www.google.com/recaptcha/api.js"></script>
-        <script>
-         function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500);
-        </script>
-
         <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdN000013JRdQ" method="POST">
 
-        <input type=hidden name='captcha_settings' value='{"keyname":"JsafeZ","fallback":"true","orgId":"00DdN000013JRdQ","ts":""}'>
         <input type=hidden name="oid" value="00DdN000013JRdQ">
         <input type=hidden name="retURL" value="https://safez-aesthetics.vercel.app/thank-you.html">
         <input type="hidden" id="company" name="company" value="Individual">
@@ -98,13 +97,10 @@
         <option value="Other">Other</option>
         </select><br>
 
-        Preferred Date &amp; Time:<span class="dateInput"><input  id="00NdN00000qwLvl" name="00NdN00000qwLvl" size="20" type="text" /></span><br>
-
-        <label for="description">Description</label><textarea name="description"></textarea><br>
+        Preferred Date &amp; Time:<span class="dateInput"><input  id="00NdN00000qwLvl" name="00NdN00000qwLvl" size="20" type="datetime-local" /></span><br>
 
         <input type="hidden"  id="lead_source" name="lead_source" value="Web" /><br>
 
-        <div class="g-recaptcha" data-sitekey="6LexZMotAAAAAH1cmDaewqhiiY1l63PW-7Bs37zD"></div><br>
         <input type="submit" name="submit">
 
         </form>
