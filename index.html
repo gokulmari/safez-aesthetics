@@ -57,70 +57,42 @@
         <p class="form-sub">Fill in your details and our team will get back to you.</p>
 
         <!-- ================================================================
-             Salesforce Web-to-Lead form.
-             Do not change: action URL, oid, or field "name" attributes -
-             these map directly to the Salesforce org and Lead fields.
-             (reCAPTCHA removed - not required for Web-to-Lead to work.)
+             Salesforce Web-to-Lead form - restored EXACTLY as provided.
+             Nothing below (ids, names, tag types, recaptcha, retURL) has
+             been changed. Only the surrounding page CSS applies to it.
              ================================================================ -->
-        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdN000013JRdQ" method="POST" id="leadForm">
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        <script>
+         function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") {var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);elems["ts"] = JSON.stringify(new Date().getTime());document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500);
+        </script>
 
-          <input type="hidden" name="oid" value="00DdN000013JRdQ">
-          <input type="hidden" name="retURL" value="https://safez-aesthetics.vercel.app/thank-you.html">
-          <input type="hidden" name="lead_source" id="lead_source" value="Web">
+        <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdN000013JRdQ" method="POST">
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="first_name">First Name<span class="req">*</span></label>
-              <input id="first_name" maxlength="40" name="first_name" type="text" required>
-            </div>
-            <div class="form-group">
-              <label for="last_name">Last Name<span class="req">*</span></label>
-              <input id="last_name" maxlength="80" name="last_name" type="text" required>
-            </div>
-          </div>
+        <input type=hidden name='captcha_settings' value='{"keyname":"test","fallback":"false","orgId":"00DdN000013JRdQ","ts":""}'>
+        <input type=hidden name="oid" value="00DdN000013JRdQ">
+        <input type=hidden name="retURL" value="https://www.instagram.com/safez_aesthetics/">
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="phone">Phone<span class="req">*</span></label>
-              <input id="phone" maxlength="40" name="phone" type="tel" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email<span class="req">*</span></label>
-              <input id="email" maxlength="80" name="email" type="email" required>
-            </div>
-          </div>
+        <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
 
-          <div class="form-row">
-            <div class="form-group">
-              <label for="city">City</label>
-              <input id="city" maxlength="40" name="city" type="text" placeholder="Coimbatore">
-            </div>
-            <div class="form-group">
-              <label for="00NdN00000qWZ6L">Age</label>
-              <input id="00NdN00000qWZ6L" name="00NdN00000qWZ6L" type="text" inputmode="numeric">
-            </div>
-          </div>
+        <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
 
-          <div class="form-group">
-            <label for="00NdN00000qWdmf">Interested Treatment</label>
-            <select id="00NdN00000qWdmf" name="00NdN00000qWdmf">
-              <option value="">Select a treatment...</option>
-              <option>Skin Care</option>
-              <option>Hair Treatment</option>
-              <option>Laser Treatment</option>
-              <option>PMU</option>
-              <option>General Consultation</option>
-              <option>Other</option>
-            </select>
-          </div>
+        <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
 
-          <div class="form-group">
-            <label for="description">Message</label>
-            <textarea id="description" name="description" placeholder="Anything else that will help us help you"></textarea>
-          </div>
+        <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
 
-          <button type="submit" class="btn-submit">Submit Request</button>
-          <p class="form-note">Your details are sent securely to our CRM and never shared with third parties.</p>
+        <label for="city">City</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
+
+        Age:<input  id="00NdN00000qWZ6L" name="00NdN00000qWZ6L" size="20" type="text" /><br>
+
+        Interested Treatment:<textarea  id="00NdN00000qWdmf" name="00NdN00000qWdmf" type="text" wrap="soft"></textarea><br>
+
+        <label for="description">Description</label><textarea name="description"></textarea><br>
+
+        <input type="hidden"  id="lead_source" name="lead_source" value="Web" /><br>
+
+        <div class="g-recaptcha" data-sitekey="test"></div><br>
+        <input type="submit" name="submit">
+
         </form>
       </div>
     </div>
