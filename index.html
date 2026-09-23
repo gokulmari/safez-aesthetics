@@ -76,32 +76,58 @@
         <input type=hidden name="oid" value="00DdN000013JRdQ">
         <input type=hidden name="retURL" value="https://safez-aesthetics.vercel.app/thank-you.html">
         <input type="hidden" id="company" name="company" value="Individual">
+        <input type="hidden"  id="lead_source" name="lead_source" value="Web" />
 
-        <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="first_name">First Name</label>
+            <input  id="first_name" maxlength="40" name="first_name" size="20" type="text" />
+          </div>
+          <div class="form-group">
+            <label for="last_name">Last Name</label>
+            <input  id="last_name" maxlength="80" name="last_name" size="20" type="text" />
+          </div>
+        </div>
 
-        <label for="last_name">Last Name</label><input  id="last_name" maxlength="80" name="last_name" size="20" type="text" /><br>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input  id="email" maxlength="80" name="email" size="20" type="text" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input  id="phone" maxlength="40" name="phone" size="20" type="text" />
+          </div>
+        </div>
 
-        <label for="email">Email</label><input  id="email" maxlength="80" name="email" size="20" type="text" /><br>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="city">City</label>
+            <input  id="city" maxlength="40" name="city" size="20" type="text" />
+          </div>
+          <div class="form-group">
+            <label for="00NdN00000qWZ6L">Age</label>
+            <input  id="00NdN00000qWZ6L" name="00NdN00000qWZ6L" size="20" type="text" />
+          </div>
+        </div>
 
-        <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
+        <div class="form-group">
+          <label for="00NdN00000qWdmf">Interested Treatment</label>
+          <select  id="00NdN00000qWdmf" name="00NdN00000qWdmf" title="Interested Treatment"><option value="">--None--</option><option value="Skin Care">Skin Care</option>
+          <option value="Hair Treatment">Hair Treatment</option>
+          <option value="Laser Treatment">Laser Treatment</option>
+          <option value="PMU">PMU</option>
+          <option value="General Consultation">General Consultation</option>
+          <option value="Other">Other</option>
+          </select>
+        </div>
 
-        <label for="city">City</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
+        <div class="form-group">
+          <label for="00NdN00000qwLvl">Preferred Date &amp; Time</label>
+          <span class="dateInput"><input  id="00NdN00000qwLvl" name="00NdN00000qwLvl" size="20" type="datetime-local" /></span>
+        </div>
 
-        Age:<input  id="00NdN00000qWZ6L" name="00NdN00000qWZ6L" size="20" type="text" /><br>
-
-        Interested Treatment:<select  id="00NdN00000qWdmf" name="00NdN00000qWdmf" title="Interested Treatment"><option value="">--None--</option><option value="Skin Care">Skin Care</option>
-        <option value="Hair Treatment">Hair Treatment</option>
-        <option value="Laser Treatment">Laser Treatment</option>
-        <option value="PMU">PMU</option>
-        <option value="General Consultation">General Consultation</option>
-        <option value="Other">Other</option>
-        </select><br>
-
-        Preferred Date &amp; Time:<span class="dateInput"><input  id="00NdN00000qwLvl" name="00NdN00000qwLvl" size="20" type="datetime-local" /></span><br>
-
-        <input type="hidden"  id="lead_source" name="lead_source" value="Web" /><br>
-
-        <input type="submit" name="submit">
+        <input type="submit" name="submit" class="btn-submit" value="Submit Request">
 
         </form>
       </div>
