@@ -59,8 +59,12 @@
         <!-- ================================================================
              Salesforce Web-to-Lead form - regenerated snippet, used exactly
              as provided (ids, names, tag types, recaptcha key all untouched).
-             Only retURL was changed, per explicit request, to point at the
-             thank-you page on this site instead of the site's own homepage.
+             Two intentional deviations, both explicitly requested:
+             1. retURL points at this site's thank-you page, not the homepage.
+             2. "Company" is hidden with a default value instead of a visible
+                text field, since these are individual/consumer leads, not
+                businesses - avoids the Lead insert failing on a required
+                field nobody would know how to fill in.
              ================================================================ -->
         <script src="https://www.google.com/recaptcha/api.js"></script>
         <script>
@@ -69,9 +73,10 @@
 
         <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdN000013JRdQ" method="POST">
 
-        <input type=hidden name='captcha_settings' value='{"keyname":"JsafeZ","fallback":"false","orgId":"00DdN000013JRdQ","ts":""}'>
+        <input type=hidden name='captcha_settings' value='{"keyname":"JsafeZ","fallback":"true","orgId":"00DdN000013JRdQ","ts":""}'>
         <input type=hidden name="oid" value="00DdN000013JRdQ">
         <input type=hidden name="retURL" value="https://safez-aesthetics.vercel.app/thank-you.html">
+        <input type="hidden" id="company" name="company" value="Individual">
 
         <label for="first_name">First Name</label><input  id="first_name" maxlength="40" name="first_name" size="20" type="text" /><br>
 
@@ -82,6 +87,8 @@
         <label for="phone">Phone</label><input  id="phone" maxlength="40" name="phone" size="20" type="text" /><br>
 
         <label for="city">City</label><input  id="city" maxlength="40" name="city" size="20" type="text" /><br>
+
+        Age:<input  id="00NdN00000qWZ6L" name="00NdN00000qWZ6L" size="20" type="text" /><br>
 
         Interested Treatment:<select  id="00NdN00000qWdmf" name="00NdN00000qWdmf" title="Interested Treatment"><option value="">--None--</option><option value="Skin Care">Skin Care</option>
         <option value="Hair Treatment">Hair Treatment</option>
