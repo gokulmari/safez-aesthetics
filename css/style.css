@@ -137,20 +137,6 @@ img { max-width: 100%; display: block; }
   background: #fff;
 }
 .form-group textarea { resize: vertical; min-height: 80px; }
-.form-group input[type="datetime-local"] {
-  padding: 10px 14px;
-  font-family: var(--font-body);
-  color: var(--dark);
-}
-.form-group input[type="datetime-local"]::-webkit-calendar-picker-indicator {
-  filter: invert(64%) sepia(46%) saturate(437%) hue-rotate(2deg) brightness(93%) contrast(90%);
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 6px;
-}
-.form-group input[type="datetime-local"]::-webkit-calendar-picker-indicator:hover {
-  background: var(--cream-alt);
-}
 
 .btn-submit {
   width: 100%;
