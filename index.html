@@ -57,25 +57,17 @@
         <p class="form-sub">Fill in your details and our team will get back to you.</p>
 
         <!-- ================================================================
-             Salesforce Web-to-Lead form - regenerated snippet (reCAPTCHA now
-             disabled at the org level, so it's gone from here entirely too).
-             Used exactly as provided; intentional deviations, both explicitly
-             requested:
-             1. retURL points at this site's thank-you page, not the homepage.
-             2. "Company" is hidden with a default value instead of a visible
-                text field - individual/consumer leads, not businesses.
-             3. "Preferred Date & Time" uses a native datetime-local picker
-                instead of a plain text box, since it's a real SF DateTime
-                field - same id/name, just a better input type. NOTE: if this
-                field shows up blank on the Lead, Web-to-Lead's date parsing
-                may not accept the browser's submitted format for this org's
-                locale - the rest of the Lead will still be created fine.
+             Salesforce Web-to-Lead form. reCAPTCHA disabled at the org
+             level (none needed here). Company is not required on Lead in
+             this org, so no company field is submitted. The one visible
+             field labeled "Full Name" maps to the required last_name.
+             Only intentional deviation from the raw generated snippet:
+             retURL points at this site's thank-you page, not the homepage.
              ================================================================ -->
         <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdN000013JRdQ" method="POST">
 
         <input type=hidden name="oid" value="00DdN000013JRdQ">
         <input type=hidden name="retURL" value="https://safez-aesthetics.vercel.app/thank-you.html">
-        <input type="hidden" id="company" name="company" value="Individual">
         <input type="hidden"  id="lead_source" name="lead_source" value="Web" />
 
         <div class="form-group">
