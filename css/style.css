@@ -25,6 +25,10 @@ body {
   color: var(--dark);
   line-height: 1.6;
 }
+.top-accent {
+  height: 5px;
+  background: linear-gradient(90deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+}
 h1, h2, h3 { font-family: var(--font-heading); font-weight: 700; margin: 0 0 12px; color: var(--dark); }
 p { margin: 0 0 16px; }
 a { color: var(--dark); text-decoration: none; }
@@ -39,7 +43,11 @@ img { max-width: 100%; display: block; }
 }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; }
 .brand { display: flex; align-items: center; gap: 12px; }
-.brand img { width: 48px; height: 48px; object-fit: contain; }
+.brand img {
+  width: 48px; height: 48px; object-fit: contain;
+  border-radius: 10px; border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(44,24,16,0.15);
+}
 .brand span { font-family: var(--font-heading); font-weight: 700; font-size: 1.3rem; letter-spacing: 0.02em; }
 .header-links { display: flex; gap: 14px; }
 .icon-link {
@@ -51,9 +59,25 @@ img { max-width: 100%; display: block; }
 .icon-link:hover { background: var(--gold); color: #fff; }
 
 /* ---------------- Intro ---------------- */
-.intro { text-align: center; padding: 56px 0 24px; }
-.intro .logo-mark { width: 84px; height: 84px; object-fit: contain; margin: 0 auto 16px; }
-.intro .tagline { font-family: var(--font-heading); font-style: italic; color: var(--gold); font-size: 1.3rem; margin-bottom: 6px; }
+.intro { position: relative; text-align: center; padding: 64px 0 28px; overflow: hidden; }
+.intro-glow {
+  position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+  width: 480px; height: 360px;
+  background: radial-gradient(circle, rgba(201,168,76,0.22) 0%, rgba(201,168,76,0) 70%);
+  pointer-events: none;
+}
+.intro .container { position: relative; }
+.logo-ring {
+  width: 110px; height: 110px; margin: 0 auto 18px;
+  border-radius: 50%;
+  background: var(--cream);
+  border: 1.5px solid var(--gold);
+  box-shadow: 0 0 0 6px var(--cream-alt), 0 12px 28px rgba(201,168,76,0.28);
+  display: flex; align-items: center; justify-content: center;
+}
+.intro .logo-mark { width: 78px; height: 78px; object-fit: contain; border-radius: 50%; }
+.intro .tagline { font-family: var(--font-heading); font-style: italic; color: var(--gold); font-size: 1.35rem; margin-bottom: 4px; }
+.ornament { color: var(--gold); font-size: 0.85rem; margin-bottom: 14px; letter-spacing: 0.3em; }
 .intro h1 { font-size: clamp(1.7rem, 4vw, 2.3rem); margin-bottom: 14px; }
 .intro p { max-width: 520px; margin: 0 auto 20px; color: rgba(44,24,16,0.72); font-size: 0.96rem; }
 .service-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
@@ -63,15 +87,30 @@ img { max-width: 100%; display: block; }
   border-radius: 999px; padding: 7px 16px;
 }
 
+.pill-btn-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 12px; }
+.pill-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 12px 26px; border-radius: 999px; font-weight: 600; font-size: 0.9rem;
+  border: 1.5px solid var(--gold); color: var(--dark); background: transparent;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+.pill-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201,168,76,0.25); }
+.pill-btn-solid { background: linear-gradient(135deg, var(--gold-light), var(--gold)); border-color: transparent; }
+
 /* ---------------- Lead form ---------------- */
 .form-section { padding: 40px 0 72px; }
 .lead-form-card {
+  position: relative;
   background: #fff;
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: 0 24px 56px rgba(44,24,16,0.16);
   border: 1px solid var(--border);
-  padding: 36px 32px;
+  border-top: 4px solid var(--gold);
+  padding: 40px 36px;
 }
+.corner-sparkle { position: absolute; color: var(--gold-light); font-size: 1.1rem; opacity: 0.8; }
+.corner-sparkle.corner-tl { top: 20px; left: 22px; }
+.corner-sparkle.corner-tr { top: 20px; right: 22px; }
 .lead-form-card h2 { font-size: 1.5rem; text-align: center; }
 .lead-form-card .form-sub { text-align: center; font-size: 0.9rem; color: rgba(44,24,16,0.65); margin-bottom: 28px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -98,11 +137,11 @@ img { max-width: 100%; display: block; }
   background: #fff;
 }
 .form-group textarea { resize: vertical; min-height: 80px; }
-.g-recaptcha { margin: 6px 0 18px; display: flex; justify-content: center; }
 
 .btn-submit {
   width: 100%;
-  padding: 14px;
+  margin-top: 8px;
+  padding: 15px;
   border: none;
   border-radius: 999px;
   background: linear-gradient(135deg, var(--gold-light), var(--gold));
@@ -110,10 +149,12 @@ img { max-width: 100%; display: block; }
   font-family: var(--font-body);
   font-weight: 700;
   font-size: 0.95rem;
+  letter-spacing: 0.02em;
   cursor: pointer;
   transition: transform 200ms ease, box-shadow 200ms ease;
 }
-.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(201,168,76,0.4); }
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(201,168,76,0.45); }
+.btn-submit:active { transform: translateY(0); }
 .form-note { font-size: 0.75rem; text-align: center; color: rgba(44,24,16,0.55); margin-top: 14px; margin-bottom: 0; }
 
 /* ---------------- Footer ---------------- */

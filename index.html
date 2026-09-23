@@ -12,6 +12,8 @@
 </head>
 <body>
 
+  <div class="top-accent"></div>
+
   <header class="site-header">
     <div class="container">
       <a href="https://safez-aesthetics-clinic.netlify.app" class="brand">
@@ -30,9 +32,11 @@
   </header>
 
   <section class="intro">
+    <div class="intro-glow"></div>
     <div class="container">
-      <img class="logo-mark" src="assets/logo.jpeg" alt="J SafeZ Aesthetics">
+      <div class="logo-ring"><img class="logo-mark" src="assets/logo.jpeg" alt="J SafeZ Aesthetics"></div>
       <p class="tagline">Journey to Safe Skin</p>
+      <div class="ornament" aria-hidden="true">&#10022;</div>
       <h1>Book Your Free Consultation</h1>
       <p>Skin | Hair | Aesthetic | PMU - Advanced Skin &amp; Hair Treatments, non-invasive procedures, at J SafeZ Aesthetics, Coimbatore.</p>
       <div class="service-tags">
@@ -47,31 +51,19 @@
   <section class="form-section">
     <div class="container">
       <div class="lead-form-card">
+        <span class="corner-sparkle corner-tl" aria-hidden="true">&#10022;</span>
+        <span class="corner-sparkle corner-tr" aria-hidden="true">&#10022;</span>
         <h2>Request a Consultation</h2>
         <p class="form-sub">Fill in your details and our team will get back to you.</p>
 
         <!-- ================================================================
              Salesforce Web-to-Lead form.
-             Do not change: action URL, oid, field "name" attributes, or the
-             captcha_settings / recaptcha markup below - these map directly
-             to the Salesforce org and Lead fields.
+             Do not change: action URL, oid, or field "name" attributes -
+             these map directly to the Salesforce org and Lead fields.
+             (reCAPTCHA removed - not required for Web-to-Lead to work.)
              ================================================================ -->
-        <script src="https://www.google.com/recaptcha/api.js"></script>
-        <script>
-          function timestamp() {
-            var response = document.getElementById("g-recaptcha-response");
-            if (response == null || response.value.trim() == "") {
-              var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value);
-              elems["ts"] = JSON.stringify(new Date().getTime());
-              document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems);
-            }
-          }
-          setInterval(timestamp, 500);
-        </script>
-
         <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8&orgId=00DdN000013JRdQ" method="POST" id="leadForm">
 
-          <input type="hidden" name="captcha_settings" value='{"keyname":"test","fallback":"false","orgId":"00DdN000013JRdQ","ts":""}'>
           <input type="hidden" name="oid" value="00DdN000013JRdQ">
           <input type="hidden" name="retURL" value="https://safez-aesthetics.vercel.app/thank-you.html">
           <input type="hidden" name="lead_source" id="lead_source" value="Web">
@@ -126,8 +118,6 @@
             <label for="description">Message</label>
             <textarea id="description" name="description" placeholder="Anything else that will help us help you"></textarea>
           </div>
-
-          <div class="g-recaptcha" data-sitekey="test"></div>
 
           <button type="submit" class="btn-submit">Submit Request</button>
           <p class="form-note">Your details are sent securely to our CRM and never shared with third parties.</p>
